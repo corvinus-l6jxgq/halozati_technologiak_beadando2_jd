@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bejelentkezés</title>
+</head>
+<body>
+<h1>Bejelentkezés</h1>
+<form action="#" th:action="@{/}" th:object="${loginForm}" method="post">
+    <table>
+        <tr>
+            <td>Felhasználónév:</td>
+            <td><input type="text" th:field="*{username}" required /></td>
+            <td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Ismeretlen felhasználónév.</td>
+        </tr>
+        <tr>
+            <td>Jelszó:</td>
+            <td><input type="password" th:field="*{password}" required /></td>
+            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Ismeretlen felhasználónév/Nem megfelelő jelszó.</td>
+        </tr>
+        <tr>
+            <td><button type="submit">Bejelentkezés</button></td>
+        </tr>
+        <tr>
+            <td>
+                <p th:text="${hiba}"></p>
+            </td>
+        </tr>
+    </table>
+</form>
+<form action="/registration">
+    <input type="submit" value="Regisztráció" />
+</form>
+</body>
+</html>
